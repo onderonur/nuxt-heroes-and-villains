@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-heroes-and-villains",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
+    "prepare": "husky install",
+    "lint": "npm run lint:js",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,js,vue}": "eslint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/composition-api": "^0.29.2",
+    "core-js": "^3.18.0",
+    "nuxt": "^2.15.7",
+    "vue-awesome": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "@nuxt/types": "^2.15.7",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.18.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.8",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1"
+  }
+}
