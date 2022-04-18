@@ -5,6 +5,12 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // To deploy on GitHub Pages:
+  // https://nuxtjs.org/deployments/github-pages/#deploying-to-github-pages-for-repository
+  router: {
+    base: '/nuxt-heroes-and-villains/',
+  },
+
   // To read env variables on client side
   env: {
     appTitle: process.env.APP_TITLE,
@@ -27,7 +33,14 @@ export default {
       },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        // Added repository name to show favicon on GitHub pages
+        href: '/nuxt-heroes-and-villains/favicon.ico',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -70,10 +83,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-
-  // For netlify deployment
-  // https://nuxtjs.org/docs/2.x/deployment/netlify-deployment
-  generate: {
-    fallback: true,
-  },
 };
