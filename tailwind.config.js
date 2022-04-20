@@ -3,10 +3,10 @@ const colors = require('tailwindcss/colors');
 const primaryColor = colors.rose;
 const secondaryColor = colors.teal;
 const errorColor = colors.red;
-const gray = colors.blueGray;
+const gray = colors.slate;
 
 module.exports = {
-  purge: ['./src/**/*.vue'],
+  content: ['./src/**/*.vue'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {

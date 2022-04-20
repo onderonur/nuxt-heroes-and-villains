@@ -1,20 +1,6 @@
 <template>
   <input
-    class="
-      outline-none
-      px-4
-      w-full
-      shadow-md
-      text-lg
-      h-12
-      rounded-l-md
-      bg-background-paper
-      dark:bg-dark-background-paper
-      text-text-main
-      dark:text-dark-text-main
-      placeholder-text-lighter
-      dark:placeholder-dark-text-lighter
-    "
+    class="outline-none px-4 w-full shadow-md text-lg h-12 rounded-l-md bg-background-paper dark:bg-dark-background-paper text-text-main dark:text-dark-text-main placeholder-text-lighter dark:placeholder-dark-text-lighter"
     :name="name"
     v-model="localValue"
     :placeholder="placeholder"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Loading v-if="loading" />
+    <LoadingSpinner v-if="loading" />
     <ErrorMessage v-else-if="error" :error="error" />
     <slot v-else />
   </div>

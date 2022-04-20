@@ -5,8 +5,8 @@
     :class="[
       'button',
       circle && 'circle-button',
-      variant === 'primary' && 'primary-button',
-      variant === 'secondary' && 'secondary-button',
+      variant === 'primary' && ['solid-button', 'primary-button'],
+      variant === 'secondary' && ['solid-button', 'secondary-button'],
       variant === 'text' && 'text-button',
       buttonClass,
     ]"
@@ -15,10 +15,14 @@
     :target="href ? '_blank' : undefined"
     :rel="href ? 'noopener noreferrer' : undefined"
     :type="type"
-    @click="handleClick"
+    @click="$emit('click', $event)"
   >
     <slot v-if="iconAlignment === 'right'" />
-    <VIcon v-if="iconName" :name="iconName" :class="iconClass" />
+    <VIcon
+      v-if="iconName"
+      :name="iconName"
+      :class="[iconClass, 'fill-current']"
+    />
     <slot v-if="iconAlignment !== 'right'" />
   </component>
 </template>
@@ -38,12 +42,6 @@ export default defineComponent({
     buttonClass: String,
     iconClass: String,
   },
-  setup(_, { emit }) {
-    function handleClick(e: Event) {
-      emit('click', e);
-    }
-    return { handleClick };
-  },
 });
 </script>
 
@@ -57,18 +55,24 @@ export default defineComponent({
       text-primary-main
       hover:text-secondary-main
       hover:bg-overlay-light
-      dark:hover:bg-dark-overlay-light;
+      dark:hover:bg-dark-overlay-light
+      flex
+      items-center
+      gap-1;
+  &.solid-button {
+    @apply text-text-contrast border-none hover:text-text-contrast;
+  }
   &.primary-button {
-    @apply bg-primary-main text-text-contrast border-none hover:bg-primary-light hover:text-text-contrast;
+    @apply bg-primary-main hover:bg-primary-light;
   }
   &.secondary-button {
-    @apply bg-secondary-main text-text-contrast border-none hover:bg-secondary-light hover:text-text-contrast;
+    @apply bg-secondary-main hover:bg-secondary-light;
   }
   &.text-button {
     @apply border-none;
   }
   &.circle-button {
-    @apply h-10 w-10 rounded-full p-0 
+    @apply h-10 w-10 rounded-full p-0
       flex
       items-center
       justify-around;

@@ -1,5 +1,5 @@
 <template>
-  <Button
+  <BaseButton
     variant="text"
     :icon-name="currentTheme === 'dark' ? 'sun' : 'moon'"
     icon-class="h-6 w-6"

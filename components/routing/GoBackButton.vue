@@ -1,5 +1,5 @@
 <template>
-  <Button @click="handleClick" icon-name="arrow-left" circle />
+  <BaseButton @click="handleClick" icon-name="arrow-left" circle />
 </template>
 
 <script lang="ts">

@@ -1,11 +1,16 @@
 <template>
   <form
-    @submit.prevent="handleSubmit"
+    @submit.prevent="$emit('submit', $event)"
     class="flex mx-auto max-w-xl mb-6 items-center"
     autocomplete="off"
   >
-    <Input name="localValue" v-model="localValue" placeholder="Search..." />
-    <Button
+    <BaseInput
+      name="searchTerm"
+      :value="value.searchTerm"
+      @input="$emit('input', { ...value, searchTerm: $event })"
+      placeholder="Search..."
+    />
+    <BaseButton
       icon-name="search"
       button-class="search-button"
       type="submit"
@@ -15,27 +20,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api';
+import { defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   props: {
     // "value" prop comes from v-model
-    value: String,
+    value: Object,
     onSubmit: Function,
-  },
-  setup(props, { emit }) {
-    function handleSubmit(e: Event) {
-      emit('submit', e);
-    }
-    const localValue = computed({
-      get: () => {
-        return props.value;
-      },
-      set: (newLocalValue) => {
-        emit('input', newLocalValue);
-      },
-    });
-    return { handleSubmit, localValue };
   },
 });
 </script>

@@ -2,7 +2,7 @@
   <div class="flex flex-col sm:flex-row gap-4 items-start">
     <div class="w-full sm:w-96 flex flex-col gap-2">
       <BaseImage :src="character.images.lg" :alt="character.name" rounded />
-      <Panel title="Power Stats">
+      <BasePanel title="Power Stats">
         <div class="grid grid-cols-2">
           <LabeledInfo label="Combat" text-class="text-2xl" is-text-bold>
             {{ character.powerstats.combat }}
@@ -23,18 +23,12 @@
             {{ character.powerstats.strength }}
           </LabeledInfo>
         </div>
-      </Panel>
+      </BasePanel>
     </div>
     <div class="w-full flex flex-col gap-2">
-      <Panel title="Appearance">
+      <BasePanel title="Appearance">
         <div
-          class="
-            grid grid-cols-2
-            sm:grid-cols-3
-            md:grid-cols-4
-            lg:grid-cols-6
-            gap-1
-          "
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1"
         >
           <LabeledInfo label="Gender">
             {{ character.appearance.gender }}
@@ -55,16 +49,10 @@
             {{ character.appearance.race }}
           </LabeledInfo>
         </div>
-      </Panel>
-      <Panel title="Biography">
+      </BasePanel>
+      <BasePanel title="Biography">
         <div
-          class="
-            grid grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            gap-1
-          "
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1"
         >
           <LabeledInfo label="Full Name" text-class="text-md">
             {{ character.biography.fullName }}
@@ -92,8 +80,8 @@
             {{ character.biography.firstAppearance }}
           </LabeledInfo>
         </div>
-      </Panel>
-      <Panel title="Connections">
+      </BasePanel>
+      <BasePanel title="Connections">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
           <LabeledInfo label="Group Affiliation" text-class="text-md">
             {{ character.connections.groupAffiliation }}
@@ -102,8 +90,8 @@
             {{ character.connections.relatives }}
           </LabeledInfo>
         </div>
-      </Panel>
-      <Panel title="Work">
+      </BasePanel>
+      <BasePanel title="Work">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
           <LabeledInfo label="Occupation" text-class="text-md">
             {{ character.work.occupation }}
@@ -112,7 +100,7 @@
             {{ character.work.base }}
           </LabeledInfo>
         </div>
-      </Panel>
+      </BasePanel>
     </div>
   </div>
 </template>

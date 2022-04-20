@@ -1,5 +1,5 @@
 <template>
-  <Card
+  <BaseCard
     :to="{
       name: 'characters-characterId',
       params: { characterId: character.id },

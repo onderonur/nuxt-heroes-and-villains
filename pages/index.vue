@@ -1,14 +1,10 @@
 <template>
   <div>
-    <SearchForm v-model="searchTerm" @submit.prevent="handleSubmit" />
+    <SearchForm v-model="searchValues" @submit.prevent="handleSubmit" />
     <LoadingContainer :loading="$fetchState.pending" :error="$fetchState.error">
       <div v-if="pageResults && pageResults.length">
         <ul
-          class="
-            grid grid-cols-autofill-min-8
-            md:grid-cols-autofill-min-10
-            gap-4
-          "
+          class="grid grid-cols-autofill-min-8 md:grid-cols-autofill-min-10 gap-4"
         >
           <li v-for="character in pageResults" :key="character.id">
             <CharacterCard :character="character" />
@@ -19,7 +15,7 @@
         <h3 class="text-lg font-bold">No result...</h3>
       </div>
       <div class="flex py-4">
-        <Button
+        <BaseButton
           v-if="typeof prevPage === 'number'"
           :to="{
             name: 'index',
@@ -28,9 +24,9 @@
           icon-name="chevron-left"
         >
           Previous
-        </Button>
+        </BaseButton>
         <div class="flex-grow" />
-        <Button
+        <BaseButton
           v-if="typeof nextPage === 'number'"
           :to="{
             name: 'index',
@@ -40,7 +36,7 @@
           icon-alignment="right"
         >
           Next
-        </Button>
+        </BaseButton>
       </div>
     </LoadingContainer>
   </div>
@@ -112,15 +108,17 @@ export default defineComponent({
       return currentPage.value < maxPage ? currentPage.value + 1 : undefined;
     });
 
-    const searchTerm = ref(
-      typeof route.value.query.term === 'string' ? route.value.query.term : '',
-    );
+    const searchValues = ref({ searchTerm: '' });
+    if (typeof route.value.query.term === 'string') {
+      searchValues.value.searchTerm = route.value.query.term;
+    }
 
     // https://stackoverflow.com/a/50971021/10876256
     watch(
       () => route.value.query.term,
       (newValue) => {
-        searchTerm.value = typeof newValue === 'string' ? newValue : '';
+        searchValues.value.searchTerm =
+          typeof newValue === 'string' ? newValue : '';
       },
     );
 
@@ -128,8 +126,9 @@ export default defineComponent({
 
     function handleSubmit() {
       const query: Record<string, string> = {};
-      if (searchTerm.value) {
-        query.term = searchTerm.value;
+      const searchTerm = searchValues.value.searchTerm;
+      if (searchTerm) {
+        query.term = searchTerm;
       }
       router.push({
         name: 'index',
@@ -154,8 +153,8 @@ export default defineComponent({
       pageResults,
       prevPage,
       nextPage,
-      searchTerm,
       handleSubmit,
+      searchValues,
     };
   },
 });

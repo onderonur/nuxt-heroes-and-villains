@@ -4,15 +4,7 @@
       <div class="image-border has-transition top-left" />
       <div class="image-border has-transition bottom-right" />
       <div
-        class="
-          has-transition
-          bg-background-paper
-          shadow-md
-          mb-3
-          rounded-tr-md rounded-bl-md
-          overflow-hidden
-          group-hover:translate-x-2 group-hover:-translate-y-2
-        "
+        class="has-transition bg-background-paper shadow-md mb-3 rounded-tr-md rounded-bl-md overflow-hidden group-hover:translate-x-2 group-hover:-translate-y-2"
       >
         <BaseImage :src="imgSrc" :alt="imgAlt" />
       </div>
