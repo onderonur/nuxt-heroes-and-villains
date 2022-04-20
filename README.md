@@ -12,7 +12,7 @@ This is a simple web application built with [Nuxt.js](https://nuxtjs.org/). It l
 - Icons: [Vue-Awesome](https://justineo.github.io/vue-awesome/demo/)
 - Linting: [ESLint](https://eslint.org/)
 - Code Formatting: [Prettier](https://prettier.io/)
-- Deployment: [GitHub Pages](https://pages.github.com/)
+- Deployment: [GitHub Pages](https://pages.github.com/) (w/ [GitHub Actions](https://github.com/features/actions))
 
 ## ⌨️ Development
 

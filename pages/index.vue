@@ -57,7 +57,7 @@ import axios from 'axios';
 import { Character } from '~/types/CharacterTypes';
 import { useScrollToTop } from '~/lib/CommonHooks';
 
-const limit = 20;
+const limit = 24;
 const firstPage = 1;
 
 export default defineComponent({
