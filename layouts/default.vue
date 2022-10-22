@@ -21,10 +21,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+html.dark {
+  // To make scrollbars dark in dark mode
+  @apply [color-scheme:dark];
+}
+
 body {
   @apply text-text-main dark:text-dark-text-main;
-  a {
-    @apply text-primary-main hover:text-secondary-main;
-  }
+}
+
+a {
+  @apply text-primary-main hover:text-secondary-main;
 }
 </style>

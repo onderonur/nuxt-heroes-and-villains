@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col">
+  <div class="absolute inset-0 flex flex-col">
     <AppHeader :app-title="appTitle" />
     <AppContent>
       <slot />
