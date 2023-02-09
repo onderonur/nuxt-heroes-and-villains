@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate && node prepareGhPages.js",
+    "generate": "nuxt generate && node scripts/prepareGhPages.js",
     "lint:js": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
     "prepare": "husky install",
     "lint": "npm run lint:js",

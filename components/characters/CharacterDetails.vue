@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col sm:flex-row gap-4 items-start">
-    <div class="w-full sm:w-96 flex flex-col gap-2">
+  <div class="grid sm:grid-cols-[theme(spacing.72)_1fr] gap-4">
+    <div class="flex flex-col gap-2">
       <BaseImage :src="character.images.lg" :alt="character.name" rounded />
       <BasePanel title="Power Stats">
         <div class="grid grid-cols-2">
@@ -25,7 +25,7 @@
         </div>
       </BasePanel>
     </div>
-    <div class="w-full flex flex-col gap-2">
+    <div class="flex flex-col gap-2">
       <BasePanel title="Appearance">
         <div
           class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1"
