@@ -1,7 +1,7 @@
 <template>
   <form
     @submit.prevent="$emit('submit', $event)"
-    class="flex mx-auto max-w-xl mb-6 items-center"
+    class="flex items-center mx-auto max-w-xl mb-app-py md:mb-app-py-md"
     autocomplete="off"
   >
     <BaseInput
@@ -33,6 +33,6 @@ export default defineComponent({
 
 <style scoped>
 .search-button {
-  @apply w-12 h-12 rounded-l-none;
+  @apply w-11 h-11 md:w-12 md:h-12 !rounded-l-none;
 }
 </style>

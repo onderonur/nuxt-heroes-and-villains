@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="flex justify-between items-center gap-4 mb-4">
+    <div
+      class="flex justify-between items-center gap-4 mb-app-py md:mb-app-py-md"
+    >
       <GoBackButton />
       <CharacterTitle v-if="character" :character="character" />
     </div>

@@ -22,7 +22,7 @@ export default defineComponent({
 
 <style lang="scss">
 html.dark {
-  // To make scrollbars dark in dark mode
+  /* To make scrollbars dark in dark mode */
   @apply [color-scheme:dark];
 }
 

@@ -1,17 +1,16 @@
 <template>
   <header
-    class="bg-background-paper dark:bg-dark-background-paper text-primary-main h-app-header flex items-center justify-between px-3 fixed w-full z-10 shadow-sm"
+    class="bg-background-paper dark:bg-dark-background-paper text-primary-main h-app-header flex items-center justify-between px-app-px md:px-app-px-md fixed w-full z-10 shadow-sm"
   >
     <NuxtLink :to="{ name: 'index' }">
-      <h1 class="font-bold text-2xl">{{ appTitle }}</h1>
+      <h1 class="font-bold text-xl md:text-2xl">{{ appTitle }}</h1>
     </NuxtLink>
-    <div class="flex gap-2">
+    <div class="flex gap-1">
       <ThemeToggler />
       <BaseButton
         variant="text"
         :href="githubRepoUrl"
         icon-name="brands/github"
-        icon-class="h-6 w-6"
         circle
       />
     </div>

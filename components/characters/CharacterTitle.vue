@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-2xl font-bold uppercase relative">
+  <h1 class="text-xl md:text-2xl font-bold uppercase relative">
     <div class="partial-border vertical top-right" />
     <div class="partial-border horizontal top-right" />
     <div class="partial-border vertical bottom-left" />

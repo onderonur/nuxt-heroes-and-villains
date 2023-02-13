@@ -14,14 +14,14 @@
     :href="href"
     :target="href ? '_blank' : undefined"
     :rel="href ? 'noopener noreferrer' : undefined"
-    :type="type"
+    :type="to ? undefined : type || 'button'"
     @click="$emit('click', $event)"
   >
     <slot v-if="iconAlignment === 'right'" />
     <VIcon
       v-if="iconName"
       :name="iconName"
-      :class="[iconClass, 'fill-current']"
+      class="fill-current w-full h-4 md:h-6"
     />
     <slot v-if="iconAlignment !== 'right'" />
   </component>
@@ -40,16 +40,17 @@ export default defineComponent({
     circle: Boolean,
     variant: String,
     buttonClass: String,
-    iconClass: String,
   },
 });
 </script>
 
 <style scoped lang="scss">
 .button {
-  @apply border-solid border-2 border-primary-main
-      py-2
-      px-4
+  @apply border-solid border-2 border-primary-main 
+      py-1    
+      md:py-2
+      px-2
+      md:px-4
       rounded-md
       font-medium
       text-primary-main
@@ -72,7 +73,7 @@ export default defineComponent({
     @apply border-none;
   }
   &.circle-button {
-    @apply h-10 w-10 rounded-full p-0
+    @apply h-8 w-8 md:h-10 md:w-10 rounded-full p-0
       flex
       items-center
       justify-around;

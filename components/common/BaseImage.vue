@@ -1,16 +1,12 @@
 <template>
-  <div
+  <img
+    :src="src"
+    :alt="alt"
     :class="[
-      'relative h-0 overflow-hidden pt-3/2',
+      'w-full object-cover bg-text-lighter aspect-[2/3]',
       rounded && 'rounded-md overflow-hidden',
     ]"
-  >
-    <img
-      :src="src"
-      :alt="alt"
-      class="absolute top-0 w-full h-full object-cover bg-text-lighter"
-    />
-  </div>
+  />
 </template>
 
 <script lang="ts">
