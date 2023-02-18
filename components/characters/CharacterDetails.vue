@@ -1,34 +1,45 @@
 <template>
-  <div class="grid sm:grid-cols-[theme(spacing.72)_1fr] gap-4">
+  <div class="grid sm:grid-cols-[theme(spacing.72)_1fr] gap-2 md:gap-4">
     <div class="flex flex-col gap-2">
-      <BaseImage :src="character.images.lg" :alt="character.name" rounded />
+      <BaseImage
+        :src="character.images.lg"
+        :alt="character.name"
+        rounded
+        class="max-w-xs mx-auto sm:max-w-none sm:mx-0"
+      />
       <BasePanel title="Power Stats">
-        <div class="grid grid-cols-2">
-          <LabeledInfo label="Combat" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.combat }}
-          </LabeledInfo>
-          <LabeledInfo label="Durability" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.durability }}
-          </LabeledInfo>
-          <LabeledInfo label="Intelligence" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.intelligence }}
-          </LabeledInfo>
-          <LabeledInfo label="Power" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.power }}
-          </LabeledInfo>
-          <LabeledInfo label="Speed" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.speed }}
-          </LabeledInfo>
-          <LabeledInfo label="Strength" text-class="text-2xl" is-text-bold>
-            {{ character.powerstats.strength }}
-          </LabeledInfo>
+        <div class="grid grid-cols-2 gap-1">
+          <CharacterPowerStat
+            label="Combat"
+            :value="character.powerstats.combat"
+          />
+          <CharacterPowerStat
+            label="Durability"
+            :value="character.powerstats.durability"
+          />
+          <CharacterPowerStat
+            label="Intelligence"
+            :value="character.powerstats.intelligence"
+          />
+          <CharacterPowerStat
+            label="Power"
+            :value="character.powerstats.power"
+          />
+          <CharacterPowerStat
+            label="Speed"
+            :value="character.powerstats.speed"
+          />
+          <CharacterPowerStat
+            label="Strength"
+            :value="character.powerstats.strength"
+          />
         </div>
       </BasePanel>
     </div>
     <div class="flex flex-col gap-2">
       <BasePanel title="Appearance">
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2"
         >
           <LabeledInfo label="Gender">
             {{ character.appearance.gender }}
@@ -52,51 +63,51 @@
       </BasePanel>
       <BasePanel title="Biography">
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
         >
-          <LabeledInfo label="Full Name" text-class="text-md">
+          <LabeledInfo label="Full Name">
             {{ character.biography.fullName }}
           </LabeledInfo>
-          <LabeledInfo label="Aliases" text-class="text-md">
+          <LabeledInfo label="Aliases">
             <ul>
               <li v-for="alias in character.biography.aliases" :key="alias">
                 {{ alias }}
               </li>
             </ul>
           </LabeledInfo>
-          <LabeledInfo label="Alter Egos" text-class="text-md">
+          <LabeledInfo label="Alter Egos">
             {{ character.biography.alterEgos }}
           </LabeledInfo>
-          <LabeledInfo label="Place of Birth" text-class="text-md">
+          <LabeledInfo label="Place of Birth">
             {{ character.biography.placeOfBirth }}
           </LabeledInfo>
-          <LabeledInfo label="Alignment" text-class="text-md">
+          <LabeledInfo label="Alignment">
             {{ character.biography.alignment }}
           </LabeledInfo>
-          <LabeledInfo label="Publisher" text-class="text-md">
+          <LabeledInfo label="Publisher">
             {{ character.biography.publisher }}
           </LabeledInfo>
-          <LabeledInfo label="First Appearance" text-class="text-md">
+          <LabeledInfo label="First Appearance">
             {{ character.biography.firstAppearance }}
           </LabeledInfo>
         </div>
       </BasePanel>
       <BasePanel title="Connections">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
-          <LabeledInfo label="Group Affiliation" text-class="text-md">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          <LabeledInfo label="Group Affiliation">
             {{ character.connections.groupAffiliation }}
           </LabeledInfo>
-          <LabeledInfo label="Relatives" text-class="text-md">
+          <LabeledInfo label="Relatives">
             {{ character.connections.relatives }}
           </LabeledInfo>
         </div>
       </BasePanel>
       <BasePanel title="Work">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
-          <LabeledInfo label="Occupation" text-class="text-md">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          <LabeledInfo label="Occupation">
             {{ character.work.occupation }}
           </LabeledInfo>
-          <LabeledInfo label="Base" text-class="text-md">
+          <LabeledInfo label="Base">
             {{ character.work.base }}
           </LabeledInfo>
         </div>
@@ -107,10 +118,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
+import CharacterPowerStat from './CharacterPowerStat.vue';
 
 export default defineComponent({
   props: {
     character: { type: Object, required: true },
   },
+  components: { CharacterPowerStat },
 });
 </script>

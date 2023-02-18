@@ -8,8 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "postgenerate": "node scripts/prepareGhPages.js",
-    "lint:js": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
     "prepare": "husky install",
+    "lint:js": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "typecheck": "tsc --noEmit"
   },
@@ -35,10 +35,10 @@
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^8.7.1",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.1",
     "postcss": "^8.4.16",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.4",
     "sass": "^1.54.4"
   }
 }

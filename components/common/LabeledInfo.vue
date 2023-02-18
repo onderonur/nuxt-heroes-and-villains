@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h3 class="font-bold text-lg text-text-light dark:text-dark-text-light">
+    <h3 class="font-bold md:text-lg text-text-light dark:text-dark-text-light">
       {{ label }}
     </h3>
-    <div
-      :class="[textClass ? textClass : 'text-lg', isTextBold && 'font-bold']"
-    >
+    <div :class="[textClass, isTextBold && 'font-bold']">
       <slot />
     </div>
   </div>
