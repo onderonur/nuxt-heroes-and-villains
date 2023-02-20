@@ -26,13 +26,13 @@ function listenStorage() {
   currentTheme.value = getStoredTheme();
 }
 
-// onMounted(() => {
-//   window.addEventListener("storage", listenStorage);
-// });
+onMounted(() => {
+  window.addEventListener("storage", listenStorage);
+});
 
-// onUnmounted(() => {
-//   window.removeEventListener("storage", listenStorage);
-// });
+onUnmounted(() => {
+  window.removeEventListener("storage", listenStorage);
+});
 
 const appConfig = useAppConfig();
 </script>

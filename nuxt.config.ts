@@ -5,4 +5,7 @@ export default defineNuxtConfig({
   components: {
     dirs: [{ path: "~/components/", pathPrefix: false }],
   },
+  app: {
+    baseURL: "/nuxt-heroes-and-villains/",
+  },
 });
