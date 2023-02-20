@@ -1,26 +1,18 @@
+<script setup lang="ts">
+const appConfig = useAppConfig();
+
+const appTitle = appConfig.appTitle;
+
+useHead({ title: appTitle, titleTemplate: `%s | ${appTitle}` });
+</script>
+
 <template>
   <AppLayout :app-title="appTitle">
-    <Nuxt />
+    <NuxtPage />
   </AppLayout>
 </template>
 
-<script lang="ts">
-import { defineComponent, useMeta } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  // In order to enable `useMeta`, please make sure you include `head: {}` within your component definition.
-  head: {},
-  setup() {
-    const appTitle = process.env.appTitle;
-    useMeta({ title: appTitle, titleTemplate: `%s | ${appTitle}` });
-    return {
-      appTitle,
-    };
-  },
-});
-</script>
-
-<style lang="scss">
+<style>
 html.dark {
   /* To make scrollbars dark in dark mode */
   @apply [color-scheme:dark];

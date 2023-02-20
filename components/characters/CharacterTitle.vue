@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { Character } from "~~/types/CharacterTypes";
+
+defineProps<{ character: Character }>();
+</script>
+
 <template>
   <h1 class="text-xl md:text-2xl font-bold uppercase relative">
     <div class="partial-border vertical top-right" />
@@ -8,30 +14,24 @@
   </h1>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    character: { type: Object, required: true },
-  },
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .partial-border {
   @apply absolute border-overlay-main dark:border-dark-overlay-main;
-  &.vertical {
-    @apply w-4 border-b-4;
-  }
-  &.horizontal {
-    @apply h-4 border-r-4;
-  }
-  &.top-right {
-    @apply top-0 -right-2;
-  }
-  &.bottom-left {
-    @apply bottom-0 -left-2;
-  }
+}
+
+.partial-border.vertical {
+  @apply w-4 border-b-4;
+}
+
+.partial-border.horizontal {
+  @apply h-4 border-r-4;
+}
+
+.partial-border.top-right {
+  @apply top-0 -right-2;
+}
+
+.partial-border.bottom-left {
+  @apply bottom-0 -left-2;
 }
 </style>

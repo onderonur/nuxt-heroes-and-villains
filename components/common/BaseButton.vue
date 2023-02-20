@@ -1,7 +1,28 @@
+<script setup lang="ts">
+import { RouteLocationRaw } from "vue-router";
+
+withDefaults(
+  defineProps<{
+    type?: string;
+    to?: RouteLocationRaw;
+    isExternalUrl?: boolean;
+    iconName?: string;
+    iconAlignment?: "left" | "right";
+    circle?: boolean;
+    variant?: "default" | "primary" | "secondary" | "text";
+    buttonClass?: string;
+  }>(),
+  { variant: "default" }
+);
+
+defineEmits<{ (e: "click", event: Event): void }>();
+
+const NuxtLink = resolveComponent("NuxtLink");
+</script>
+
 <template>
-  <!-- https://vuejs.org/v2/guide/components.html#Dynamic-Components -->
   <component
-    :is="to ? 'NuxtLink' : href ? 'a' : 'button'"
+    :is="to ? NuxtLink : 'button'"
     :class="[
       'button',
       circle && 'circle-button',
@@ -11,14 +32,13 @@
       buttonClass,
     ]"
     :to="to"
-    :href="href"
-    :target="href ? '_blank' : undefined"
-    :rel="href ? 'noopener noreferrer' : undefined"
+    :target="isExternalUrl ? '_blank' : undefined"
+    :rel="isExternalUrl ? 'noopener noreferrer' : undefined"
     :type="to ? undefined : type || 'button'"
     @click="$emit('click', $event)"
   >
     <slot v-if="iconAlignment === 'right'" />
-    <VIcon
+    <Icon
       v-if="iconName"
       :name="iconName"
       class="fill-current w-full h-4 md:h-6"
@@ -27,27 +47,10 @@
   </component>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    type: String,
-    to: Object,
-    href: String,
-    iconName: String,
-    iconAlignment: String,
-    circle: Boolean,
-    variant: String,
-    buttonClass: String,
-  },
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .button {
-  @apply border-solid border-2 border-primary-main 
-      py-1    
+  @apply border-solid border-2 border-primary-main
+      py-1
       md:py-2
       px-2
       md:px-4
@@ -60,23 +63,28 @@ export default defineComponent({
       flex
       items-center
       gap-1;
-  &.solid-button {
-    @apply text-text-contrast border-none hover:text-text-contrast;
-  }
-  &.primary-button {
-    @apply bg-primary-main hover:bg-primary-light;
-  }
-  &.secondary-button {
-    @apply bg-secondary-main hover:bg-secondary-light;
-  }
-  &.text-button {
-    @apply border-none;
-  }
-  &.circle-button {
-    @apply h-8 w-8 md:h-10 md:w-10 rounded-full p-0
+}
+
+.button.solid-button {
+  @apply text-text-contrast border-none hover:text-text-contrast;
+}
+
+.button.primary-button {
+  @apply bg-primary-main hover:bg-primary-light;
+}
+
+.button.secondary-button {
+  @apply bg-secondary-main hover:bg-secondary-light;
+}
+
+.button.text-button {
+  @apply border-none;
+}
+
+.button.circle-button {
+  @apply h-8 w-8 md:h-10 md:w-10 rounded-full p-0
       flex
       items-center
       justify-around;
-  }
 }
 </style>

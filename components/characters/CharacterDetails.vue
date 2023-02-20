@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { Character } from "~~/types/CharacterTypes";
+
+defineProps<{ character: Character }>();
+</script>
+
 <template>
   <div class="grid sm:grid-cols-[theme(spacing.72)_1fr] gap-2 md:gap-4">
     <div class="flex flex-col gap-2">
@@ -115,15 +121,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-import CharacterPowerStat from './CharacterPowerStat.vue';
-
-export default defineComponent({
-  props: {
-    character: { type: Object, required: true },
-  },
-  components: { CharacterPowerStat },
-});
-</script>

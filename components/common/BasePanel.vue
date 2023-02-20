@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps<{
+  title: string;
+}>();
+</script>
+
 <template>
   <div
     class="py-2 px-4 rounded-md border-2 shadow-md relative mt-4 bg-background-body dark:bg-dark-background-body"
@@ -12,13 +18,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    title: { type: String, required: true },
-  },
-});
-</script>

@@ -1,7 +1,103 @@
+<script setup lang="ts">
+import { Character } from "~/types/CharacterTypes";
+import { useScrollToTop } from "~/lib/CommonHooks";
+
+const limit = 24;
+const firstPage = 1;
+
+const {
+  data: characters,
+  pending,
+  error,
+} = useFetch<Character[]>(
+  () => "https://akabab.github.io/superhero-api/api/all.json"
+);
+
+const route = useRoute();
+
+const currentPage = computed(() => {
+  const parsed = parseInt(route.query.page as string);
+
+  if (Number.isInteger(parsed)) {
+    return parsed;
+  }
+
+  return firstPage;
+});
+
+const searchResults = computed(() => {
+  return characters.value?.filter((character) => {
+    const term = route.query.term;
+
+    if (typeof term !== "string" || !term) {
+      return true;
+    }
+
+    return character.name.toLowerCase().includes(term.toLowerCase());
+  });
+});
+
+const pageResults = computed(() => {
+  const offset = (currentPage.value - firstPage) * limit;
+  const pageResults = searchResults.value?.slice(offset, offset + limit);
+  return pageResults;
+});
+
+const prevPage = computed(() => {
+  return currentPage.value > firstPage ? currentPage.value - 1 : undefined;
+});
+
+const nextPage = computed(() => {
+  const maxPage = Math.ceil((searchResults.value ?? []).length / limit);
+  return currentPage.value < maxPage ? currentPage.value + 1 : undefined;
+});
+
+const searchTerm = ref("");
+
+watch(
+  () => route.query.term,
+  (newValue) => {
+    const newSearchTerm = typeof newValue === "string" ? newValue : "";
+    searchTerm.value = newSearchTerm;
+  },
+  { immediate: true }
+);
+
+const router = useRouter();
+
+function handleSubmit() {
+  const query: Record<string, string> = {};
+
+  if (searchTerm.value) {
+    query.term = searchTerm.value;
+  }
+
+  router.push({
+    name: "index",
+    query,
+  });
+}
+
+// Scroll to top when pageResults are changed
+useScrollToTop(pageResults);
+
+useHead({
+  title: () => {
+    const term = route.query.term;
+    return `Search${term ? ` for '${term}'` : ""}`;
+  },
+});
+</script>
+
+<!-- TODO: nuxt linter will be added -->
+
 <template>
   <div>
-    <SearchForm v-model="searchValues" @submit.prevent="handleSubmit" />
-    <LoadingContainer :loading="$fetchState.pending" :error="$fetchState.error">
+    <SearchForm
+      v-model:search-term="searchTerm"
+      @submit.prevent="handleSubmit"
+    />
+    <LoadingContainer :loading="pending" :error="error">
       <div v-if="pageResults && pageResults.length">
         <ul
           class="grid grid-cols-autofill-min-8 md:grid-cols-autofill-min-10 gap-2 md:gap-4"
@@ -21,7 +117,7 @@
             name: 'index',
             query: { ...$route.query, page: prevPage },
           }"
-          icon-name="chevron-left"
+          icon-name="material-symbols:chevron-left"
         >
           Previous
         </BaseButton>
@@ -32,7 +128,7 @@
             name: 'index',
             query: { ...$route.query, page: nextPage },
           }"
-          icon-name="chevron-right"
+          icon-name="material-symbols:chevron-right"
           icon-alignment="right"
         >
           Next
@@ -41,121 +137,3 @@
     </LoadingContainer>
   </div>
 </template>
-
-<script lang="ts">
-import {
-  computed,
-  defineComponent,
-  ref,
-  useFetch,
-  useMeta,
-  useRoute,
-  useRouter,
-  watch,
-} from '@nuxtjs/composition-api';
-import axios from 'axios';
-import { Character } from '~/types/CharacterTypes';
-import { useScrollToTop } from '~/lib/CommonHooks';
-
-const limit = 24;
-const firstPage = 1;
-
-export default defineComponent({
-  head: {},
-  setup() {
-    const characters = ref<Character[]>([]);
-    const { fetch } = useFetch(async () => {
-      const { data } = await axios.get<Character[]>(
-        `https://akabab.github.io/superhero-api/api/all.json`,
-      );
-      characters.value = data;
-    });
-
-    fetch();
-
-    const route = useRoute();
-
-    const currentPage = computed(() => {
-      const parsed = parseInt(route.value.query.page as string);
-      if (Number.isInteger(parsed)) {
-        return parsed;
-      }
-      return firstPage;
-    });
-
-    const searchResults = computed(() => {
-      return characters.value.filter((character) => {
-        const query = (route.value.query.term as string) ?? '';
-        if (!query) {
-          return true;
-        }
-        return character.name.toLowerCase().includes(query.toLowerCase());
-      });
-    });
-
-    const pageResults = computed(() => {
-      const offset = (currentPage.value - firstPage) * limit;
-      const pageResults = searchResults.value.slice(offset, offset + limit);
-      return pageResults;
-    });
-
-    const prevPage = computed(() => {
-      return currentPage.value > firstPage ? currentPage.value - 1 : undefined;
-    });
-
-    const nextPage = computed(() => {
-      const maxPage = Math.ceil((searchResults.value ?? []).length / limit);
-      return currentPage.value < maxPage ? currentPage.value + 1 : undefined;
-    });
-
-    const searchValues = ref({ searchTerm: '' });
-    if (typeof route.value.query.term === 'string') {
-      searchValues.value.searchTerm = route.value.query.term;
-    }
-
-    // https://stackoverflow.com/a/50971021/10876256
-    watch(
-      () => route.value.query.term,
-      (newValue) => {
-        searchValues.value.searchTerm =
-          typeof newValue === 'string' ? newValue : '';
-      },
-    );
-
-    const router = useRouter();
-
-    function handleSubmit() {
-      const query: Record<string, string> = {};
-      const searchTerm = searchValues.value.searchTerm;
-      if (searchTerm) {
-        query.term = searchTerm;
-      }
-      router.push({
-        name: 'index',
-        query,
-      });
-    }
-
-    // Scroll to top when pageResults are changed
-    useScrollToTop(pageResults);
-
-    const { title } = useMeta();
-    watch(
-      route,
-      (data) => {
-        const term = data.query.term;
-        title.value = `Search${term ? ` for '${term}'` : ''}`;
-      },
-      { immediate: true },
-    );
-
-    return {
-      pageResults,
-      prevPage,
-      nextPage,
-      handleSubmit,
-      searchValues,
-    };
-  },
-});
-</script>

@@ -1,31 +1,21 @@
+<script setup lang="ts">
+defineProps<{
+  placeholder: string;
+  name: string;
+  modelValue: string;
+}>();
+
+defineEmits<{ (e: "update:modelValue", value: string): void }>();
+</script>
+
 <template>
   <input
     class="px-3 md:px-4 w-full shadow-md md:text-lg h-11 md:h-12 rounded-l-md bg-background-paper dark:bg-dark-background-paper text-text-main dark:text-dark-text-main placeholder-text-lighter dark:placeholder-dark-text-lighter"
     :name="name"
-    v-model="localValue"
+    :value="modelValue"
+    @input="
+      $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+    "
     :placeholder="placeholder"
   />
 </template>
-
-<script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    placeholder: String,
-    name: String,
-    value: String,
-  },
-  setup(props, { emit }) {
-    const localValue = computed({
-      get: () => {
-        return props.value;
-      },
-      set: (newLocalValue) => {
-        emit('input', newLocalValue);
-      },
-    });
-    return { localValue };
-  },
-});
-</script>

@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { FetchError } from "ofetch";
+import { Maybe } from "~~/types/CommonTypes";
+
+defineProps<{
+  loading: boolean;
+  error: Maybe<FetchError>;
+}>();
+</script>
+
 <template>
   <div>
     <LoadingSpinner v-if="loading" />
@@ -5,14 +15,3 @@
     <slot v-else />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    loading: Boolean,
-    error: Error,
-  },
-});
-</script>

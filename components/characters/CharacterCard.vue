@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { Character } from "~/types/CharacterTypes";
+
+defineProps<{ character: Character }>();
+</script>
+
 <template>
   <BaseCard
     :to="{
@@ -9,13 +15,3 @@
     :title="character.name"
   />
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    character: { type: Object, required: true },
-  },
-});
-</script>

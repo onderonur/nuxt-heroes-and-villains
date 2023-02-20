@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { FetchError } from "ofetch";
+
+defineProps<{ error: FetchError }>();
+</script>
+
 <template>
   <div
     v-if="error"
@@ -6,13 +12,3 @@
     {{ error.message }}
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    error: { type: Error, required: true },
-  },
-});
-</script>

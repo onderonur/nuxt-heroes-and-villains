@@ -1,4 +1,4 @@
-import { Id } from './CommonTypes';
+import { Id, Maybe } from "./CommonTypes";
 
 export interface Character {
   id: Id;
@@ -14,7 +14,7 @@ export interface Character {
   };
   appearance: {
     gender: string;
-    race: string | null;
+    race: Maybe<string>;
     height: string[];
     weight: string[];
     eyeColor: string;
@@ -26,7 +26,7 @@ export interface Character {
     aliases: string[];
     placeOfBirth: string;
     firstAppearance: string;
-    publisher: string | null;
+    publisher: Maybe<string>;
     alignment: string;
   };
   work: {

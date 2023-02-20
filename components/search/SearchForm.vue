@@ -1,3 +1,12 @@
+<script setup lang="ts">
+defineProps<{ searchTerm: string }>();
+
+defineEmits<{
+  (e: "update:searchTerm", value: string): void;
+  (e: "submit", event: Event): void;
+}>();
+</script>
+
 <template>
   <form
     @submit.prevent="$emit('submit', $event)"
@@ -6,12 +15,12 @@
   >
     <BaseInput
       name="searchTerm"
-      :value="value.searchTerm"
-      @input="$emit('input', { ...value, searchTerm: $event })"
+      :model-value="searchTerm"
+      @update:model-value="$emit('update:searchTerm', $event)"
       placeholder="Search..."
     />
     <BaseButton
-      icon-name="search"
+      icon-name="material-symbols:search"
       button-class="search-button"
       type="submit"
       variant="primary"
@@ -19,20 +28,8 @@
   </form>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    // "value" prop comes from v-model
-    value: Object,
-    onSubmit: Function,
-  },
-});
-</script>
-
 <style scoped>
 .search-button {
-  @apply w-11 h-11 md:w-12 md:h-12 !rounded-l-none;
+  @apply w-11 h-11 md:w-12 md:h-12 rounded-l-none p-3;
 }
 </style>

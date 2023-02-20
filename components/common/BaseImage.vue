@@ -1,3 +1,11 @@
+<script setup lang="ts">
+defineProps<{
+  rounded?: boolean;
+  src: string;
+  alt: string;
+}>();
+</script>
+
 <template>
   <img
     :src="src"
@@ -8,15 +16,3 @@
     ]"
   />
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    rounded: Boolean,
-    src: { type: String, required: true },
-    alt: { type: String, required: true },
-  },
-});
-</script>

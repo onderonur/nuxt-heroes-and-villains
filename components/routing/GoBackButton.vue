@@ -1,17 +1,15 @@
-<template>
-  <BaseButton @click="handleClick" icon-name="arrow-left" circle />
-</template>
+<script setup lang="ts">
+const router = useRouter();
 
-<script lang="ts">
-import { defineComponent, useRouter } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  setup() {
-    const router = useRouter();
-    function handleClick() {
-      router.go(-1);
-    }
-    return { handleClick };
-  },
-});
+function handleClick() {
+  router.go(-1);
+}
 </script>
+
+<template>
+  <BaseButton
+    @click="handleClick"
+    icon-name="material-symbols:arrow-back"
+    circle
+  />
+</template>

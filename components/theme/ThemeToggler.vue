@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { getStoredTheme, setStoredTheme } from "~/lib/ThemeUtils";
-
-defineProps<{ appTitle: string }>();
+import { getStoredTheme, setStoredTheme, Theme } from "~/lib/ThemeUtils";
 
 const currentTheme = ref(getStoredTheme());
 
@@ -13,6 +11,7 @@ watch(
     } else {
       document.documentElement.classList.remove("dark");
     }
+
     setStoredTheme(currentTheme.value);
   },
   {
@@ -21,6 +20,11 @@ watch(
     immediate: true,
   }
 );
+
+function toggleTheme() {
+  currentTheme.value =
+    currentTheme.value === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+}
 
 function listenStorage() {
   currentTheme.value = getStoredTheme();
@@ -33,26 +37,17 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("storage", listenStorage);
 });
-
-const appConfig = useAppConfig();
 </script>
 
 <template>
-  <header
-    class="bg-background-paper dark:bg-dark-background-paper text-primary-main h-app-header flex items-center justify-between px-app-px md:px-app-px-md fixed w-full z-10 shadow-sm"
-  >
-    <NuxtLink :to="{ name: 'index' }">
-      <h1 class="font-bold text-xl md:text-2xl">{{ appTitle }}</h1>
-    </NuxtLink>
-    <div class="flex gap-1">
-      <ThemeToggler />
-      <BaseButton
-        variant="text"
-        :to="appConfig.githubRepoUrl"
-        is-external-url
-        icon-name="mdi:github"
-        circle
-      />
-    </div>
-  </header>
+  <BaseButton
+    variant="text"
+    :icon-name="
+      currentTheme === 'dark'
+        ? 'material-symbols:sunny'
+        : 'material-symbols:dark-mode-rounded'
+    "
+    circle
+    @click="toggleTheme"
+  />
 </template>

@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import { RouteLocationRaw } from "vue-router";
+
+defineProps<{
+  to: RouteLocationRaw;
+  imgSrc: string;
+  imgAlt: string;
+  title: String;
+}>();
+</script>
+
 <template>
   <NuxtLink :to="to">
     <div class="bg-secondary-main relative group rounded-tr-md rounded-bl-md">
@@ -15,20 +26,7 @@
   </NuxtLink>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
-
-export default defineComponent({
-  props: {
-    to: [String, Object],
-    imgSrc: String,
-    imgAlt: String,
-    title: String,
-  },
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .has-transition {
   @apply transform
           transition
@@ -42,13 +40,15 @@ export default defineComponent({
           border-8 border-secondary-main;
   border-top-color: transparent;
   border-bottom-color: transparent;
-  &.top-left {
-    @apply top-0 -translate-x-2 group-hover:-translate-y-2;
-    border-left-color: transparent;
-  }
-  &.bottom-right {
-    @apply -right-2 bottom-0 group-hover:translate-x-2;
-    border-right-color: transparent;
-  }
+}
+
+.image-border.top-left {
+  @apply top-0 -translate-x-2 group-hover:-translate-y-2;
+  border-left-color: transparent;
+}
+
+.image-border.bottom-right {
+  @apply -right-2 bottom-0 group-hover:translate-x-2;
+  border-right-color: transparent;
 }
 </style>
