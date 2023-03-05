@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Character } from "~/types/CharacterTypes";
+import { Character } from '~/types/CharacterTypes';
 
 const route = useRoute();
 
@@ -9,11 +9,11 @@ const {
   error,
 } = useFetch<Character>(
   () =>
-    `https://akabab.github.io/superhero-api/api/id/${route.params.characterId}.json`
+    `https://akabab.github.io/superhero-api/api/id/${route.params.characterId}.json`,
 );
 
 useHead({
-  title: () => character.value?.name ?? "",
+  title: () => character.value?.name ?? '',
 });
 </script>
 

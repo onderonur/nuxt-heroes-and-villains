@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { FetchError } from "ofetch";
-import { Maybe } from "~~/types/CommonTypes";
+import { FetchError } from 'ofetch';
+import { Maybe } from '~~/types/CommonTypes';
 
 defineProps<{
   loading: boolean;

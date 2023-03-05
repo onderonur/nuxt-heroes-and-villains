@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FetchError } from "ofetch";
+import { FetchError } from 'ofetch';
 
 defineProps<{ error: FetchError }>();
 </script>

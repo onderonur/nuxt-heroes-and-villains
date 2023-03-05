@@ -1,4 +1,5 @@
-const colors = require("tailwindcss/colors");
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const colors = require('tailwindcss/colors');
 
 const primaryColor = colors.rose;
 const secondaryColor = colors.teal;
@@ -8,14 +9,14 @@ const gray = colors.slate;
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-    "./app.vue",
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './app.vue',
   ],
-  darkMode: "class", // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -67,21 +68,21 @@ module.exports = {
         },
       },
       gridTemplateColumns: {
-        "autofill-min-8": "repeat(auto-fill, minmax(8rem, 1fr))",
-        "autofill-min-10": "repeat(auto-fill, minmax(10rem, 1fr))",
+        'autofill-min-8': 'repeat(auto-fill, minmax(8rem, 1fr))',
+        'autofill-min-10': 'repeat(auto-fill, minmax(10rem, 1fr))',
       },
       spacing: {
-        "app-header": `theme(spacing.12)`,
-        "app-px": "theme(spacing.3)",
-        "app-px-md": "theme(spacing.5)",
-        "app-py": "theme(spacing.2)",
-        "app-py-md": "theme(spacing.4)",
+        'app-header': `theme(spacing.12)`,
+        'app-px': 'theme(spacing.3)',
+        'app-px-md': 'theme(spacing.5)',
+        'app-py': 'theme(spacing.2)',
+        'app-py-md': 'theme(spacing.4)',
       },
     },
   },
   variants: {
     extend: {
-      translate: ["group-hover"],
+      translate: ['group-hover'],
     },
   },
 };

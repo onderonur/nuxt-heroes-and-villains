@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Character } from "~/types/CharacterTypes";
-import { useScrollToTop } from "~/lib/CommonHooks";
+import { Character } from '~/types/CharacterTypes';
+import { useScrollToTop } from '~/lib/CommonHooks';
 
 const limit = 24;
 const firstPage = 1;
@@ -10,7 +10,7 @@ const {
   pending,
   error,
 } = useFetch<Character[]>(
-  () => "https://akabab.github.io/superhero-api/api/all.json"
+  () => 'https://akabab.github.io/superhero-api/api/all.json',
 );
 
 const route = useRoute();
@@ -27,9 +27,9 @@ const currentPage = computed(() => {
 
 const searchResults = computed(() => {
   return characters.value?.filter((character) => {
-    const term = route.query.term;
+    const { term } = route.query;
 
-    if (typeof term !== "string" || !term) {
+    if (typeof term !== 'string' || !term) {
       return true;
     }
 
@@ -52,15 +52,15 @@ const nextPage = computed(() => {
   return currentPage.value < maxPage ? currentPage.value + 1 : undefined;
 });
 
-const searchTerm = ref("");
+const searchTerm = ref('');
 
 watch(
   () => route.query.term,
   (newValue) => {
-    const newSearchTerm = typeof newValue === "string" ? newValue : "";
+    const newSearchTerm = typeof newValue === 'string' ? newValue : '';
     searchTerm.value = newSearchTerm;
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const router = useRouter();
@@ -73,7 +73,7 @@ function handleSubmit() {
   }
 
   router.push({
-    name: "index",
+    name: 'index',
     query,
   });
 }
@@ -83,8 +83,8 @@ useScrollToTop(pageResults);
 
 useHead({
   title: () => {
-    const term = route.query.term;
-    return `Search${term ? ` for '${term}'` : ""}`;
+    const { term } = route.query;
+    return `Search${term ? ` for '${term}'` : ''}`;
   },
 });
 </script>

@@ -2,22 +2,22 @@
 defineProps<{ searchTerm: string }>();
 
 defineEmits<{
-  (e: "update:searchTerm", value: string): void;
-  (e: "submit", event: Event): void;
+  (e: 'update:searchTerm', value: string): void;
+  (e: 'submit', event: Event): void;
 }>();
 </script>
 
 <template>
   <form
-    @submit.prevent="$emit('submit', $event)"
     class="flex items-center mx-auto max-w-xl mb-app-py md:mb-app-py-md"
     autocomplete="off"
+    @submit.prevent="$emit('submit', $event)"
   >
     <BaseInput
       name="searchTerm"
       :model-value="searchTerm"
-      @update:model-value="$emit('update:searchTerm', $event)"
       placeholder="Search..."
+      @update:model-value="$emit('update:searchTerm', $event)"
     />
     <BaseButton
       icon-name="material-symbols:search"

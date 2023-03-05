@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const appConfig = useAppConfig();
 
-const appTitle = appConfig.appTitle;
+const { appTitle } = appConfig;
 
 useHead({ title: appTitle, titleTemplate: `%s | ${appTitle}` });
 </script>

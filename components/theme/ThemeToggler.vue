@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { getStoredTheme, setStoredTheme, Theme } from "~/lib/ThemeUtils";
+import { getStoredTheme, setStoredTheme, Theme } from '~/lib/ThemeUtils';
 
 const currentTheme = ref(getStoredTheme());
 
 watch(
   currentTheme,
   () => {
-    if (currentTheme.value === "dark") {
-      document.documentElement.classList.add("dark");
+    if (currentTheme.value === 'dark') {
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
 
     setStoredTheme(currentTheme.value);
@@ -18,7 +18,7 @@ watch(
     // To make "watch" to be triggered for the initial value too.
     // Otherwise, it only watches for the value changes.
     immediate: true,
-  }
+  },
 );
 
 function toggleTheme() {
@@ -31,11 +31,11 @@ function listenStorage() {
 }
 
 onMounted(() => {
-  window.addEventListener("storage", listenStorage);
+  window.addEventListener('storage', listenStorage);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("storage", listenStorage);
+  window.removeEventListener('storage', listenStorage);
 });
 </script>
 

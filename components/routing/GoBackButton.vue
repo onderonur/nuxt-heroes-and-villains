@@ -8,8 +8,8 @@ function handleClick() {
 
 <template>
   <BaseButton
-    @click="handleClick"
     icon-name="material-symbols:arrow-back"
     circle
+    @click="handleClick"
   />
 </template>

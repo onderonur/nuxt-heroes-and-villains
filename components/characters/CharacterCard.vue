@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Character } from "~/types/CharacterTypes";
+import { Character } from '~/types/CharacterTypes';
 
 defineProps<{ character: Character }>();
 </script>

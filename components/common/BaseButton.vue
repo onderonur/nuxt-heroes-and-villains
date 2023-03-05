@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from "vue-router";
+import { RouteLocationRaw } from 'vue-router';
 
 withDefaults(
   defineProps<{
@@ -7,17 +7,24 @@ withDefaults(
     to?: RouteLocationRaw;
     isExternalUrl?: boolean;
     iconName?: string;
-    iconAlignment?: "left" | "right";
+    iconAlignment?: 'left' | 'right';
     circle?: boolean;
-    variant?: "default" | "primary" | "secondary" | "text";
+    variant?: 'default' | 'primary' | 'secondary' | 'text';
     buttonClass?: string;
   }>(),
-  { variant: "default" }
+  {
+    type: 'button',
+    to: undefined,
+    iconName: undefined,
+    iconAlignment: undefined,
+    variant: 'default',
+    buttonClass: undefined,
+  },
 );
 
-defineEmits<{ (e: "click", event: Event): void }>();
+defineEmits<{ (e: 'click', event: Event): void }>();
 
-const NuxtLink = resolveComponent("NuxtLink");
+const NuxtLink = resolveComponent('NuxtLink');
 </script>
 
 <template>
