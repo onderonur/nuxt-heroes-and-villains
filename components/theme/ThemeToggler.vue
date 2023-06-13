@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getStoredTheme, setStoredTheme, Theme } from '~/lib/ThemeUtils';
+import { getStoredTheme, setStoredTheme, Theme } from '~/lib/theme-utils';
 
 const currentTheme = ref(getStoredTheme());
 

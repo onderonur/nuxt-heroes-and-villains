@@ -1,4 +1,4 @@
-import { Id, Maybe } from './CommonTypes';
+import { Id, Maybe } from './common-types';
 
 export interface Character {
   id: Id;

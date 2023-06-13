@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Character } from '~/types/CharacterTypes';
-import { useScrollToTop } from '~/lib/CommonHooks';
+import Fuse from 'fuse.js';
+import { Character } from '~/types/character-types';
+import { useScrollToTop } from '~/lib/common-hooks';
 
 const limit = 24;
 const firstPage = 1;
@@ -25,21 +26,30 @@ const currentPage = computed(() => {
   return firstPage;
 });
 
-const searchResults = computed(() => {
-  return characters.value?.filter((character) => {
-    const { term } = route.query;
-
-    if (typeof term !== 'string' || !term) {
-      return true;
-    }
-
-    return character.name.toLowerCase().includes(term.toLowerCase());
+const fuse = computed(() => {
+  return new Fuse(characters.value ?? [], {
+    keys: [
+      {
+        name: 'name',
+        getFn: (character) => character.name,
+      },
+    ],
   });
+});
+
+const searchResults = computed(() => {
+  const { term } = route.query;
+
+  if (typeof term !== 'string' || !term) {
+    return characters.value ?? [];
+  }
+
+  return fuse.value.search(term).map((fuseItem) => fuseItem.item);
 });
 
 const pageResults = computed(() => {
   const offset = (currentPage.value - firstPage) * limit;
-  const pageResults = searchResults.value?.slice(offset, offset + limit);
+  const pageResults = searchResults.value.slice(offset, offset + limit);
   return pageResults;
 });
 

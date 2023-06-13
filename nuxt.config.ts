@@ -18,5 +18,10 @@ export default defineNuxtConfig({
         },
       ],
     },
+    // https://nuxt.com/docs/getting-started/transitions
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
   },
 });

@@ -25,4 +25,14 @@ body {
 a {
   @apply text-primary-main hover:text-secondary-main;
 }
+
+/* https://nuxt.com/docs/getting-started/transitions */
+.page-enter-active,
+.page-leave-active {
+  @apply transition-all duration-500;
+}
+.page-enter-from,
+.page-leave-to {
+  @apply opacity-0 blur-md;
+}
 </style>
