@@ -1,13 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const colors = require('tailwindcss/colors');
+import { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const primaryColor = colors.rose;
 const secondaryColor = colors.teal;
 const errorColor = colors.red;
 const gray = colors.slate;
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './components/**/*.{js,vue,ts}',
     './layouts/**/*.vue',
@@ -85,4 +84,4 @@ module.exports = {
       translate: ['group-hover'],
     },
   },
-};
+} satisfies Config;

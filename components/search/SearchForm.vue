@@ -9,11 +9,13 @@ defineEmits<{
 
 <template>
   <form
+    role="search"
     class="flex items-center mx-auto max-w-xl mb-app-py md:mb-app-py-md"
     autocomplete="off"
     @submit.prevent="$emit('submit', $event)"
   >
     <BaseInput
+      type="search"
       name="searchTerm"
       :model-value="searchTerm"
       placeholder="Search..."
