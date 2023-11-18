@@ -5,13 +5,13 @@ defineProps<{ character: Character }>();
 </script>
 
 <template>
-  <div class="grid sm:grid-cols-[theme(spacing.72)_1fr] gap-2 md:gap-4">
+  <div class="grid gap-2 sm:grid-cols-[theme(spacing.72)_1fr] md:gap-4">
     <div class="flex flex-col gap-2">
       <BaseImage
         :src="character.images.lg"
         :alt="character.name"
         rounded
-        class="max-w-xs mx-auto sm:max-w-none sm:mx-0"
+        class="mx-auto max-w-xs sm:mx-0 sm:max-w-none"
       />
       <BasePanel title="Power Stats">
         <div class="grid grid-cols-2 gap-1">
@@ -45,7 +45,7 @@ defineProps<{ character: Character }>();
     <div class="flex flex-col gap-2">
       <BasePanel title="Appearance">
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2"
+          class="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
         >
           <LabeledInfo label="Gender">
             {{ character.appearance.gender }}
@@ -69,7 +69,7 @@ defineProps<{ character: Character }>();
       </BasePanel>
       <BasePanel title="Biography">
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+          class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           <LabeledInfo label="Full Name">
             {{ character.biography.fullName }}
@@ -99,7 +99,7 @@ defineProps<{ character: Character }>();
         </div>
       </BasePanel>
       <BasePanel title="Connections">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <LabeledInfo label="Group Affiliation">
             {{ character.connections.groupAffiliation }}
           </LabeledInfo>
@@ -109,7 +109,7 @@ defineProps<{ character: Character }>();
         </div>
       </BasePanel>
       <BasePanel title="Work">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
           <LabeledInfo label="Occupation">
             {{ character.work.occupation }}
           </LabeledInfo>

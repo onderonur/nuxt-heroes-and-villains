@@ -11,16 +11,16 @@ defineProps<{
 
 <template>
   <NuxtLink :to="to">
-    <div class="bg-secondary-main relative group rounded-tr-md rounded-bl-md">
+    <div class="group relative rounded-bl-md rounded-tr-md bg-secondary-main">
       <div class="image-border has-transition top-left" />
       <div class="image-border has-transition bottom-right" />
       <div
-        class="has-transition bg-background-paper shadow-md mb-2 rounded-tr-md rounded-bl-md overflow-hidden group-hover:translate-x-2 group-hover:-translate-y-2"
+        class="has-transition mb-2 overflow-hidden rounded-bl-md rounded-tr-md bg-background-paper shadow-md group-hover:-translate-y-2 group-hover:translate-x-2"
       >
         <BaseImage :src="imgSrc" :alt="imgAlt" />
       </div>
     </div>
-    <h2 class="font-semibold md:text-lg uppercase">
+    <h2 class="font-semibold uppercase md:text-lg">
       {{ title }}
     </h2>
   </NuxtLink>

@@ -10,7 +10,7 @@ defineEmits<{
 <template>
   <form
     role="search"
-    class="flex items-center mx-auto max-w-xl mb-app-py md:mb-app-py-md"
+    class="mx-auto mb-app-py flex max-w-xl items-center md:mb-app-py-md"
     autocomplete="off"
     @submit.prevent="$emit('submit', $event)"
   >
@@ -32,6 +32,6 @@ defineEmits<{
 
 <style scoped>
 .search-button {
-  @apply w-11 h-11 md:w-12 md:h-12 rounded-l-none p-3;
+  @apply h-11 w-11 rounded-l-none p-3 md:h-12 md:w-12;
 }
 </style>

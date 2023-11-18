@@ -39,10 +39,10 @@ const appConfig = useAppConfig();
 
 <template>
   <header
-    class="bg-background-paper dark:bg-dark-background-paper text-primary-main h-app-header flex items-center justify-between px-app-px md:px-app-px-md fixed w-full z-10 shadow-sm"
+    class="fixed z-10 flex h-app-header w-full items-center justify-between bg-background-paper px-app-px text-primary-main shadow-sm dark:bg-dark-background-paper md:px-app-px-md"
   >
     <NuxtLink :to="{ name: 'index' }">
-      <h1 class="font-bold text-xl md:text-2xl">{{ appTitle }}</h1>
+      <h1 class="text-xl font-bold md:text-2xl">{{ appTitle }}</h1>
     </NuxtLink>
     <div class="flex gap-1">
       <ThemeToggler />

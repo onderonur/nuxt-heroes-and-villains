@@ -3,7 +3,7 @@ defineProps<{ appTitle: string }>();
 </script>
 
 <template>
-  <div class="min-h-screen grid grid-rows-[1fr_auto]">
+  <div class="grid min-h-screen grid-rows-[1fr_auto]">
     <AppHeader :app-title="appTitle" />
     <AppContent>
       <slot />

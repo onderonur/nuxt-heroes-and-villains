@@ -2,28 +2,32 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "codequality": "npm run format && npm run lint",
+    "codequality:fix": "npm run format:fix && npm run lint:fix",
     "dev": "nuxt dev",
+    "format": "prettier --check --ignore-unknown .",
+    "format:fix": "prettier --write --ignore-unknown .",
     "generate": "nuxt generate",
     "postgenerate": "node scripts/prepare-gh-pages",
-    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 --ext .ts,.js,.vue .",
-    "lint:fix": "eslint --fix --ext .ts,.js,.vue ."
+    "lint:fix": "eslint --fix --ext .ts,.js,.vue .",
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "@nuxt/postcss8": "^1.1.3",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "autoprefixer": "^10.4.14",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/tailwindcss": "^6.9.5",
+    "autoprefixer": "^10.4.16",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "fuse.js": "^7.0.0",
     "nuxt": "^3.6.2",
     "nuxt-icon": "^0.4.2",
-    "postcss": "^8.4.25",
-    "prettier": "^2.8.8",
-    "tailwindcss": "^3.3.2"
-  },
-  "dependencies": {
-    "fuse.js": "^6.6.2"
+    "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-packagejson": "^2.4.6",
+    "prettier-plugin-tailwindcss": "^0.5.7",
+    "tailwindcss": "^3.3.5"
   }
 }

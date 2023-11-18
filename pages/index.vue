@@ -110,7 +110,7 @@ useHead({
     <LoadingContainer :loading="pending" :error="error">
       <div v-if="pageResults && pageResults.length">
         <ul
-          class="grid grid-cols-autofill-min-8 md:grid-cols-autofill-min-10 gap-2 md:gap-4"
+          class="grid grid-cols-autofill-min-8 gap-2 md:grid-cols-autofill-min-10 md:gap-4"
         >
           <li v-for="character in pageResults" :key="character.id">
             <CharacterCard :character="character" />

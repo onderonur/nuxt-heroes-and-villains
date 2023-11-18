@@ -10,7 +10,7 @@ defineEmits<{ (e: 'update:modelValue', value: string): void }>();
 
 <template>
   <input
-    class="px-3 md:px-4 w-full shadow-md md:text-lg h-11 md:h-12 rounded-l-md bg-background-paper dark:bg-dark-background-paper text-text-main dark:text-dark-text-main placeholder-text-lighter dark:placeholder-dark-text-lighter"
+    class="h-11 w-full rounded-l-md bg-background-paper px-3 text-text-main placeholder-text-lighter shadow-md dark:bg-dark-background-paper dark:text-dark-text-main dark:placeholder-dark-text-lighter md:h-12 md:px-4 md:text-lg"
     :name="name"
     :value="modelValue"
     :placeholder="placeholder"

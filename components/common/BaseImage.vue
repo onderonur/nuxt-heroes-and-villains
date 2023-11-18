@@ -11,8 +11,8 @@ defineProps<{
     :src="src"
     :alt="alt"
     :class="[
-      'w-full object-cover bg-text-lighter aspect-[2/3]',
-      rounded && 'rounded-md overflow-hidden',
+      'aspect-[2/3] w-full bg-text-lighter object-cover',
+      rounded && 'overflow-hidden rounded-md',
     ]"
   />
 </template>

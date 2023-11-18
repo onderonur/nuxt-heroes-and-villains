@@ -4,7 +4,7 @@ defineProps<{ appTitle: string }>();
 
 <template>
   <footer
-    class="bg-overlay-light dark:bg-dark-overlay-light flex items-center p-app-px md:p-app-px-md"
+    class="flex items-center bg-overlay-light p-app-px dark:bg-dark-overlay-light md:p-app-px-md"
   >
     {{ appTitle }} | Vue.js
   </footer>

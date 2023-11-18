@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <div>
-    <h3 class="font-bold md:text-lg text-text-light dark:text-dark-text-light">
+    <h3 class="font-bold text-text-light dark:text-dark-text-light md:text-lg">
       {{ label }}
     </h3>
     <div :class="[textClass, isTextBold && 'font-bold']">

@@ -1,8 +1,8 @@
 <template>
   <main
-    class="mt-app-header py-app-py md:py-app-py-md px-app-px md:px-app-px-md bg-background-body dark:bg-dark-background-body"
+    class="mt-app-header bg-background-body px-app-px py-app-py dark:bg-dark-background-body md:px-app-px-md md:py-app-py-md"
   >
-    <div class="max-w-6xl mx-auto">
+    <div class="mx-auto max-w-6xl">
       <slot />
     </div>
   </main>

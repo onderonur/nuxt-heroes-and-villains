@@ -20,7 +20,7 @@ useHead({
 <template>
   <div>
     <div
-      class="flex justify-between items-center gap-4 mb-app-py md:mb-app-py-md"
+      class="mb-app-py flex items-center justify-between gap-4 md:mb-app-py-md"
     >
       <GoBackButton />
       <CharacterTitle v-if="character" :character="character" />

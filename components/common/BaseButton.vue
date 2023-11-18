@@ -48,7 +48,7 @@ const NuxtLink = resolveComponent('NuxtLink');
     <Icon
       v-if="iconName"
       :name="iconName"
-      class="fill-current w-full h-4 md:h-6"
+      class="h-4 w-full fill-current md:h-6"
     />
     <slot v-if="iconAlignment !== 'right'" />
   </component>
@@ -56,24 +56,23 @@ const NuxtLink = resolveComponent('NuxtLink');
 
 <style scoped>
 .button {
-  @apply border-solid border-2 border-primary-main
-      py-1
-      md:py-2
-      px-2
-      md:px-4
+  @apply flex items-center gap-1
       rounded-md
+      border-2
+      border-primary-main
+      px-2
+      py-1
       font-medium
       text-primary-main
-      hover:text-secondary-main
       hover:bg-overlay-light
+      hover:text-secondary-main
       dark:hover:bg-dark-overlay-light
-      flex
-      items-center
-      gap-1;
+      md:px-4
+      md:py-2;
 }
 
 .button.solid-button {
-  @apply text-text-contrast border-none hover:text-text-contrast;
+  @apply border-none text-text-contrast hover:text-text-contrast;
 }
 
 .button.primary-button {
@@ -89,9 +88,9 @@ const NuxtLink = resolveComponent('NuxtLink');
 }
 
 .button.circle-button {
-  @apply h-8 w-8 md:h-10 md:w-10 rounded-full p-0
-      flex
-      items-center
-      justify-around;
+  @apply flex h-8 w-8 items-center justify-around rounded-full
+      p-0
+      md:h-10
+      md:w-10;
 }
 </style>

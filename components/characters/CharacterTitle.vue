@@ -5,7 +5,7 @@ defineProps<{ character: Character }>();
 </script>
 
 <template>
-  <h1 class="text-xl md:text-2xl font-bold uppercase relative">
+  <h1 class="relative text-xl font-bold uppercase md:text-2xl">
     <div class="partial-border vertical top-right" />
     <div class="partial-border horizontal top-right" />
     <div class="partial-border vertical bottom-left" />
@@ -28,10 +28,10 @@ defineProps<{ character: Character }>();
 }
 
 .partial-border.top-right {
-  @apply top-0 -right-2;
+  @apply -right-2 top-0;
 }
 
 .partial-border.bottom-left {
-  @apply bottom-0 -left-2;
+  @apply -left-2 bottom-0;
 }
 </style>
