@@ -8,7 +8,7 @@
     "format": "prettier --check --ignore-unknown .",
     "format:fix": "prettier --write --ignore-unknown .",
     "generate": "nuxt generate",
-    "postgenerate": "node scripts/prepare-gh-pages",
+    "postgenerate": "tsx scripts/prepare-gh-pages.ts",
     "postinstall": "nuxt prepare",
     "lint": "eslint --max-warnings 0 --ext .ts,.js,.vue .",
     "lint:fix": "eslint --fix --ext .ts,.js,.vue .",
@@ -28,6 +28,7 @@
     "prettier": "^3.1.0",
     "prettier-plugin-packagejson": "^2.4.6",
     "prettier-plugin-tailwindcss": "^0.5.7",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "tsx": "^4.7.1"
   }
 }

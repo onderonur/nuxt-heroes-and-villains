@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Fuse from 'fuse.js';
 import { Character } from '~/types/character-types';
-import { useScrollToTop } from '~/lib/common-hooks';
 
 const limit = 24;
 const firstPage = 1;

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getStoredTheme, setStoredTheme } from '~/lib/theme-utils';
-
 defineProps<{ appTitle: string }>();
 
 const currentTheme = ref(getStoredTheme());
