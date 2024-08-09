@@ -28,8 +28,7 @@ defineProps<{
 
 <style scoped>
 .has-transition {
-  @apply transform
-          transition
+  @apply transition
           duration-200;
 }
 
