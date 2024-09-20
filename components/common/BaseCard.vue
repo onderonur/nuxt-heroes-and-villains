@@ -15,7 +15,7 @@ defineProps<{
       <div class="image-border has-transition top-left" />
       <div class="image-border has-transition bottom-right" />
       <div
-        class="has-transition mb-2 overflow-hidden rounded-bl-md rounded-tr-md bg-background-paper shadow-md group-hover:-translate-y-2 group-hover:translate-x-2"
+        class="has-transition relative mb-2 overflow-hidden rounded-bl-md rounded-tr-md bg-background-paper shadow-md group-hover:-translate-y-2 group-hover:translate-x-2"
       >
         <BaseImage :src="imgSrc" :alt="imgAlt" />
       </div>
