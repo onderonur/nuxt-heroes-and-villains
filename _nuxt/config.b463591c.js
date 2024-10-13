@@ -1,1 +1,0 @@
-import{W as p,X as i,G as o,C as e}from"./entry.353090c6.js";const t=p({appTitle:"Heroes & Villains",githubRepoUrl:"https://github.com/onderonur/nuxt-heroes-and-villains"}),s={},a=i(t,s);function u(){const n=e();return n._appConfig||(n._appConfig=o(a)),n._appConfig}export{u};
