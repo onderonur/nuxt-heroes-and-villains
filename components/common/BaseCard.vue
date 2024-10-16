@@ -32,7 +32,7 @@ defineProps<{
 }
 
 .image-border {
-  @apply absolute h-0 w-0 border-8 border-secondary-main;
+  @apply absolute size-0 border-8 border-secondary-main;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }

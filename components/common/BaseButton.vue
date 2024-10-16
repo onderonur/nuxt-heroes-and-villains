@@ -76,6 +76,6 @@ const NuxtLink = resolveComponent('NuxtLink');
 }
 
 .button.circle-button {
-  @apply flex h-8 w-8 items-center justify-around rounded-full p-0 md:h-10 md:w-10;
+  @apply flex size-8 items-center justify-around rounded-full p-0 md:size-10;
 }
 </style>

@@ -19,13 +19,13 @@ This is a simple web application built with [Nuxt](https://nuxt.com/). It lists 
 To start development, we should install our packages first.
 
 ```bash
-npm install
+pnpm install
 ```
 
 After the installation is completed, we can run the app by:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 and it will start on `http://localhost:3000`.
@@ -35,12 +35,12 @@ and it will start on `http://localhost:3000`.
 To create a production build, we need to run the below command first:
 
 ```bash
-npm run generate
+pnpm generate
 ```
 
 This command will create our static files in `dist` folder to serve.  
 After this step, we can run the app in `production` mode by:
 
 ```bash
-npm start
+pnpm start
 ```

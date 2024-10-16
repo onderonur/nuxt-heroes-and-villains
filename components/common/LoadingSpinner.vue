@@ -2,7 +2,7 @@
   <div class="flex justify-center py-6">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="h-12 w-12 animate-spin text-primary-main"
+      class="size-12 animate-spin text-primary-main"
       fill="none"
       viewBox="0 0 24 24"
     >
