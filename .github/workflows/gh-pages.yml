@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '20'
       # Pick your own package manager and build script
-      - run: npm ci
+      - run: pnpm install
       - run: NUXT_APP_BASE_URL=/nuxt-heroes-and-villains/ npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

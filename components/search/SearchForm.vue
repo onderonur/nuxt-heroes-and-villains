@@ -35,6 +35,6 @@ defineEmits<{
 
 <style scoped>
 .search-button {
-  @apply h-11 w-11 rounded-l-none p-3 md:h-12 md:w-12;
+  @apply size-11 rounded-l-none p-3 md:size-12;
 }
 </style>
