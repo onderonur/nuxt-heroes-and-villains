@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from 'vue-router';
+import type { RouteLocationRaw } from 'vue-router';
 
 withDefaults(
   defineProps<{
@@ -56,19 +56,7 @@ const NuxtLink = resolveComponent('NuxtLink');
 
 <style scoped>
 .button {
-  @apply flex items-center gap-1
-      rounded-md
-      border-2
-      border-primary-main
-      px-2
-      py-1
-      font-medium
-      text-primary-main
-      hover:bg-overlay-light
-      hover:text-secondary-main
-      dark:hover:bg-dark-overlay-light
-      md:px-4
-      md:py-2;
+  @apply flex items-center gap-1 rounded-md border-2 border-primary-main px-2 py-1 font-medium text-primary-main hover:bg-overlay-light hover:text-secondary-main dark:hover:bg-dark-overlay-light md:px-4 md:py-2;
 }
 
 .button.solid-button {
@@ -88,9 +76,6 @@ const NuxtLink = resolveComponent('NuxtLink');
 }
 
 .button.circle-button {
-  @apply flex h-8 w-8 items-center justify-around rounded-full
-      p-0
-      md:h-10
-      md:w-10;
+  @apply flex h-8 w-8 items-center justify-around rounded-full p-0 md:h-10 md:w-10;
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from 'vue-router';
+import type { RouteLocationRaw } from 'vue-router';
 
 defineProps<{
   to: RouteLocationRaw;
@@ -28,15 +28,11 @@ defineProps<{
 
 <style scoped>
 .has-transition {
-  @apply transition
-          duration-200;
+  @apply transition duration-200;
 }
 
 .image-border {
-  @apply absolute
-          h-0
-          w-0
-          border-8 border-secondary-main;
+  @apply absolute h-0 w-0 border-8 border-secondary-main;
   border-top-color: transparent;
   border-bottom-color: transparent;
 }

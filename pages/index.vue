@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Fuse from 'fuse.js';
-import { Character } from '~/types/character-types';
+import type { Character } from '~/types/character-types';
 
 const limit = 24;
 const firstPage = 1;

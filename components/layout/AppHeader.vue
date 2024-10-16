@@ -1,37 +1,6 @@
 <script setup lang="ts">
 defineProps<{ appTitle: string }>();
 
-const currentTheme = ref(getStoredTheme());
-
-watch(
-  currentTheme,
-  () => {
-    if (currentTheme.value === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    setStoredTheme(currentTheme.value);
-  },
-  {
-    // To make "watch" to be triggered for the initial value too.
-    // Otherwise, it only watches for the value changes.
-    immediate: true,
-  },
-);
-
-function listenStorage() {
-  currentTheme.value = getStoredTheme();
-}
-
-onMounted(() => {
-  window.addEventListener('storage', listenStorage);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('storage', listenStorage);
-});
-
 const appConfig = useAppConfig();
 </script>
 

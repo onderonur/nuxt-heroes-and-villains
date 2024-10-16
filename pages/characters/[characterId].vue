@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Character } from '~/types/character-types';
+import type { Character } from '~/types/character-types';
 
 const route = useRoute();
 
