@@ -1,7 +1,7 @@
-# nuxt-heroes-and-villains
+# nuxt-heroes
 
 This is a simple web application built with [Nuxt](https://nuxt.com/). It lists hero and villain characters from various comics, movies, etc. and shows their details.  
-**Live demo is [here](https://onderonur.github.io/nuxt-heroes-and-villains/).**
+**Live demo is [here](https://onderonur.github.io/nuxt-heroes/).**
 
 ## 💻 Tech Stack
 

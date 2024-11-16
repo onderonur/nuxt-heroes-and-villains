@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: pnpm install
-      - run: NUXT_APP_BASE_URL=/nuxt-heroes-and-villains/ npx nuxt build --preset github_pages
+      - run: NUXT_APP_BASE_URL=/nuxt-heroes/ npx nuxt build --preset github_pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
